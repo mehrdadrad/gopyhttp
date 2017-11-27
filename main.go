@@ -1,16 +1,18 @@
 package main
 
+import "C"
+
 import (
 	"github.com/mehrdadrad/gopyhttp/gohttp"
 )
 
-func main() {
+//export HTTPRequest
+func HTTPRequest(url string) {
 	var r []gohttp.Request
-	r = append(r, gohttp.Request{URL: "https://www.yahoo.com"})
-	r = append(r, gohttp.Request{URL: "https://www.linux.com"})
-	r = append(r, gohttp.Request{URL: "https://www.microsoft.com"})
-	r = append(r, gohttp.Request{URL: "https://www.google.com"})
-	r = append(r, gohttp.Request{URL: "https://www.facebook.com"})
+
+	r = append(r, gohttp.Request{URL: url})
 
 	gohttp.Run(r)
 }
+
+func main() {}
